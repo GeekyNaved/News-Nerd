@@ -36,7 +36,8 @@ const Card = ({title, comments, author, url}) => {
             <a
               href={url}
               target="_blank"
-              className="bg-gradient-to-r from-slate-600 text- to-slate-950 text-white px-4 py-2 border-none rounded-md"
+              className="border-2 border-slate-900 px-4 py-2 rounded-md hover:bg-slate-200 transition duration-300"
+              // className="bg-gradient-to-r from-slate-500 text- to-slate-950 text-white px-4 py-2 border-none rounded-md"
             >
               Read More
             </a>

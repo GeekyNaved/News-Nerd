@@ -20,7 +20,7 @@ function App() {
       .get(url)
       .then((response) => {
         setIsLoading(false);
-        console.log("response", response?.data?.hits);
+        // console.log("response", response?.data?.hits);
         if (response?.data?.hits?.length > 0) {
           setNewsData(response?.data?.hits);
         } else
@@ -46,7 +46,7 @@ function App() {
   }, [nbPages, query]);
 
   return (
-    <div className="min-h-screen px-5 md:p-0 bg-slate-400 flex flex-col items-center">
+    <div className="min-h-screen px-5 md:p-0 bg-slate-100 flex flex-col items-center">
       <Search searchValue={query} onSearch={handleSearch} />
       {isLoading ? (
         <div>

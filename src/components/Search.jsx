@@ -5,7 +5,7 @@ const Search = ({onSearch, searchValue}) => {
       <form onSubmit={(e) => e.preventDefault()}>
         <div className="my-5">
           <input
-            className="border-none rounded-md px-2 py-1"
+            className="border-none rounded-md px-2 py-1 shadow-2xl"
             type="text"
             value={searchValue}
             onChange={onSearch}
