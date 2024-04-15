@@ -1,12 +1,7 @@
-import {useState} from "react";
 import {BsBookmarkCheckFill} from "react-icons/bs";
 import {BsBookmark} from "react-icons/bs";
 
-const Card = ({title, comments, author, url}) => {
-  const [saved, setSaved] = useState(false);
-  const toggleSave = () => {
-    setSaved(!saved);
-  };
+const Card = ({title, comments, author, url, isSaved, onSave}) => {
   return (
     <div className="text-left bg-gray-50 shadow-lg px-3 md:px-5 py-5 rounded flex-1">
       <div className="py-2">
@@ -20,8 +15,8 @@ const Card = ({title, comments, author, url}) => {
       </p>
       {url && (
         <div className="flex justify-between items-center pt-4">
-          <button className="flex items-center gap-1" onClick={toggleSave}>
-            {saved ? (
+          <button className="flex items-center gap-1" onClick={onSave}>
+            {isSaved ? (
               <div className="text-2xl">
                 <BsBookmarkCheckFill />
               </div>
@@ -30,14 +25,15 @@ const Card = ({title, comments, author, url}) => {
                 <BsBookmark />
               </div>
             )}
-            <p className="font-bold md:text-2xl">save</p>
+            <p className="font-bold md:text-2xl">
+              {isSaved ? "saved" : "save"}
+            </p>
           </button>
           <div>
             <a
               href={url}
               target="_blank"
               className="border-2 border-slate-900 px-4 py-2 rounded-md hover:bg-slate-200 transition duration-300"
-              // className="bg-gradient-to-r from-slate-500 text- to-slate-950 text-white px-4 py-2 border-none rounded-md"
             >
               Read More
             </a>
