@@ -25,7 +25,11 @@ function App() {
       .then((response) => {
         setIsLoading(false);
         if (response?.data?.hits?.length > 0) {
-          setNewsData(response?.data?.hits);
+          // getting articles which has title or hiding articles which has no title
+          const articlesWithTitle = response?.data?.hits?.filter(
+            (news) => news.title
+          );
+          setNewsData(articlesWithTitle);
           // setSavedArticles(response?.data?.hits);
           setNbPages(response?.data?.nbPages);
         } else {
