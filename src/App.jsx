@@ -47,6 +47,10 @@ function App() {
     setQuery(e.target.value);
   };
 
+  const handleClearAllArticles = () => {
+    setSavedArticles([]);
+    localStorage.clear("Articles");
+  };
   const handleSave = (item) => {
     const isExist = savedArticles.some(
       (savedItem) => savedItem.title == item.title
@@ -72,6 +76,7 @@ function App() {
       <SidePanel
         isOpen={isSidePanelOpen}
         onClose={() => setIsSidePanelOpen(false)}
+        onClearAll={handleClearAllArticles}
         savedArticles={savedArticles}
       />
       <h1 className="text-center text-4xl font-bold">News Nerd</h1>
