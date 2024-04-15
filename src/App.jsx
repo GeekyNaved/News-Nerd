@@ -16,7 +16,7 @@ function App() {
   const [nbPages, setNbPages] = useState(0);
   const [page, setPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const API_URL = "http://hn.algolia.com/api/v1/search?";
+  const API_URL = "https://hn.algolia.com/api/v1/search?";
 
   const getNews = (url) => {
     setIsLoading(true);
