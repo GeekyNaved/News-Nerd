@@ -1,4 +1,4 @@
-const Search = () => {
+const Search = ({onSearch, searchValue}) => {
   return (
     <>
       <h1 className="text-center text-4xl font-bold">News Nerd</h1>
@@ -7,6 +7,8 @@ const Search = () => {
           <input
             className="border-none rounded-md px-2 py-1"
             type="text"
+            value={searchValue}
+            onChange={onSearch}
             placeholder="search here"
             // value={query}
             // onChange={(e) => searchPost(e.target.value)}
