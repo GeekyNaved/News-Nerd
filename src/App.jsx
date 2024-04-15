@@ -4,29 +4,6 @@ import Card from "./components/Card";
 import Search from "./components/Search";
 import {useEffect, useState} from "react";
 
-const dummyNews = [
-  {
-    id: 1,
-    title: "Neutrelle is going to be hacked",
-    author: "siza",
-    url: "https://google.com",
-    comment: "4",
-  },
-  {
-    id: 1,
-    title: "iFileVAT not gonna be completed anyway",
-    author: "naved",
-    url: "https://google.com",
-    comment: "2",
-  },
-  {
-    id: 1,
-    title: "MacTassos not going to be delivered by the end of this year",
-    author: "amaan",
-    url: "https://google.com",
-    comment: "18",
-  },
-];
 function App() {
   const [newsData, setNewsData] = useState([]);
   const API_URL = "http://hn.algolia.com/api/v1/search?";
@@ -47,9 +24,9 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen px-5 text-center bg-slate-500">
+    <div className="min-h-screen px-5 md:p-0 bg-slate-400 flex flex-col items-center justify-center">
       <Search />
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 gap-4 md:max-w-5xl">
         {newsData?.map((item, key) => {
           return (
             <Card

@@ -36,7 +36,7 @@ const Card = ({title, comments, author, url}) => {
             <a
               href={url}
               target="_blank"
-              className="bg-gradient-to-r from-cyan-500 text- to-teal-500 text-white px-4 py-2 border-none rounded-md"
+              className="bg-gradient-to-r from-slate-600 text- to-slate-950 text-white px-4 py-2 border-none rounded-md"
             >
               Read More
             </a>
