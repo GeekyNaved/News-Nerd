@@ -76,7 +76,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen px-5 py-5 bg-slate-100 flex flex-col">
+    <div className="min-h-screen px-5 py-5 bg-slate-100 flex flex-col items-center">
       <SidePanel
         isOpen={isSidePanelOpen}
         onClose={() => setIsSidePanelOpen(false)}
