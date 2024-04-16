@@ -83,8 +83,8 @@ function App() {
         onClearAll={handleClearAllArticles}
         savedArticles={savedArticles}
       />
-      <h1 className="text-center text-4xl font-bold">News Nerd</h1>
-      <div className="my-5 w-1/2 md:w-1/4 self-center">
+      <h1 className="text-4xl font-bold">News Nerd</h1>
+      <div className="my-5 md:w-1/4">
         <Search searchValue={query} onSearch={handleSearch} />
       </div>
       <button
@@ -94,7 +94,7 @@ function App() {
         View Saved News
       </button>
       {/* pagination */}
-      <div className="flex gap-2 items-center py-5 self-center">
+      <div className="flex gap-2 items-center py-5">
         <button
           onClick={() => setPage(page - 1)}
           disabled={page == 0 ? true : false}
@@ -131,7 +131,7 @@ function App() {
           />
         </div>
       ) : (
-        <div className="grid md:grid-cols-2 gap-4 md:max-w-5xl self-center">
+        <div className="grid md:grid-cols-2 gap-4 md:max-w-5xl">
           {newsData?.map((item, key) => {
             return (
               <Card
