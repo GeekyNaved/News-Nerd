@@ -1,8 +1,19 @@
+import {useEffect, useState} from "react";
 import {BsBookmarkCheckFill} from "react-icons/bs";
 import {BsBookmark} from "react-icons/bs";
 import {IoLogoWhatsapp} from "react-icons/io";
 
 const Card = ({title, comments, author, url, isSaved, onSave}) => {
+  const [isMobile, setIsMobile] = useState(Boolean);
+  // check user's device is mobile or desktop to open whatsapp app on mobile & whatsapp web in desktops
+  useEffect(() => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    setIsMobile(
+      /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(
+        userAgent.toLowerCase()
+      )
+    );
+  }, []);
   return (
     <div className="text-left bg-gray-50 shadow-lg px-3 md:px-5 py-5 rounded flex-1">
       <div className="py-2">
@@ -14,15 +25,27 @@ const Card = ({title, comments, author, url, isSaved, onSave}) => {
         By <span className="font-bold">{author}</span> |{" "}
         <span className="text-xs font-medium">{comments} comments</span>
       </p>
-      <a
-        href={`https://web.whatsapp.com/send?text= Please Visit ${url}`}
-        rel="nofollow noopener"
-        target="_blank"
-        className="flex items-center gap-2 mt-2 text-green-700 font-bold"
-      >
-        <IoLogoWhatsapp />
-        Share via Whatsapp
-      </a>
+      {isMobile ? (
+        <a
+          href={`whatsapp://send?text= Please Visit ${url}`}
+          rel="nofollow noopener"
+          target="_blank"
+          className="flex items-center gap-2 mt-2 text-green-700 font-bold"
+        >
+          <IoLogoWhatsapp />
+          Share via Whatsapp
+        </a>
+      ) : (
+        <a
+          href={`https://web.whatsapp.com/send?text= Please Visit ${url}`}
+          rel="nofollow noopener"
+          target="_blank"
+          className="flex items-center gap-2 mt-2 text-green-700 font-bold"
+        >
+          <IoLogoWhatsapp />
+          Share via Whatsapp
+        </a>
+      )}
       {url && (
         <div className="flex justify-between items-center pt-4">
           <button className="flex items-center gap-1" onClick={onSave}>
