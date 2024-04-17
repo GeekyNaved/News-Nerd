@@ -7,9 +7,7 @@ import Loader from "react-js-loader";
 import {ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SidePanel from "./components/SidePanel";
-import {
-  SavedArticlesContext,
-} from "./Context/SavedArticlesContext";
+import {SavedArticlesContext} from "./Context/SavedArticlesContext";
 
 function App() {
   const {savedArticles, setSavedArticles} = useContext(SavedArticlesContext);
@@ -106,7 +104,7 @@ function App() {
         className="text-blue-600 py-2 text-xl"
         onClick={() => setIsSidePanelOpen(true)}
       >
-        View Saved News
+        View Saved News ({savedArticles?.length})
       </button>
       {/* pagination */}
       <div className="flex gap-2 items-center py-5">
