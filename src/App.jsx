@@ -2,15 +2,18 @@ import axios from "axios";
 import "./App.css";
 import Card from "./components/Card";
 import Search from "./components/Search";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import Loader from "react-js-loader";
 import {ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SidePanel from "./components/SidePanel";
+import {
+  SavedArticlesContext,
+} from "./Context/SavedArticlesContext";
 
 function App() {
+  const {savedArticles, setSavedArticles} = useContext(SavedArticlesContext);
   const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);
-  const [savedArticles, setSavedArticles] = useState([]);
   const [newsData, setNewsData] = useState([]);
   const [query, setQuery] = useState("");
   const [nbPages, setNbPages] = useState(0);
