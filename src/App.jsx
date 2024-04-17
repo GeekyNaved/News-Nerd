@@ -49,6 +49,7 @@ function App() {
 
   const handleSearch = (e) => {
     setQuery(e.target.value);
+    setPage(0);
   };
 
   const handleClearAllArticles = () => {
@@ -65,9 +66,20 @@ function App() {
     setSavedArticles(updatedSavedArticles);
     localStorage.setItem("Articles", JSON.stringify(updatedSavedArticles));
   };
+
+  // for search
+  useEffect(() => {
+    // debounce function - to improve search performance
+    let timerOut = setTimeout(() => {
+      getNews(`${API_URL}query=${query}&page=${page}`);
+    }, 800);
+    return () => clearTimeout(timerOut);
+  }, [query]);
+
+  // for pagination
   useEffect(() => {
     getNews(`${API_URL}query=${query}&page=${page}`);
-  }, [page, query]);
+  }, [page]);
 
   useEffect(() => {
     const existedArticles = JSON.parse(localStorage.getItem("Articles"));
