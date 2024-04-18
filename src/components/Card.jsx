@@ -7,7 +7,7 @@ const Card = ({title, comments, author, url, isSaved, onSave}) => {
   const [isMobile, setIsMobile] = useState(Boolean);
   // check user's device is mobile or desktop to open whatsapp app on mobile & whatsapp web in desktops
   useEffect(() => {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const userAgent = navigator.userAgent || window.opera;
     setIsMobile(
       /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(
         userAgent.toLowerCase()
